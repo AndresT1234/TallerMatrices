@@ -1,7 +1,7 @@
 ﻿using System;
-using Taller2_Matrices;
+using Taller1_Matrices;
 
-namespace Taller2_Metrices
+namespace Taller1_Matrices
 {
     public class Program
     {
@@ -18,7 +18,7 @@ namespace Taller2_Metrices
 
             Matriz matrixC = new Matriz();
             int[,] matrizCArray = { { 4, 4, 4 }, { 4, 4, 4 }, { 4, 4, 4 }, { 4, 4, 4 } };
-            matrixC.SetMatrix(matrizCArray); //hola
+            matrixC.SetMatrix(matrizCArray); 
 
             Matriz sumado = matrixA.Sumar(matrixB);
 

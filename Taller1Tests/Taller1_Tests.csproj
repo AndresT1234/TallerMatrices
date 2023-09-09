@@ -54,9 +54,9 @@
     <Compile Include="PruebasAssertTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Taller1\Taller2_Matrices.csproj">
+    <ProjectReference Include="..\Taller1\Taller1_Matrices.csproj">
       <Project>{cc0d7860-0172-44af-ac30-e6606f1f9804}</Project>
-      <Name>Taller2_Matrices</Name>
+      <Name>Taller1_Matrices</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

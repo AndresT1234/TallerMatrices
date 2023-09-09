@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Taller2_Matrices
+namespace Taller1_Matrices
 {
     public class Matriz
     {

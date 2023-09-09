@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taller2_Matrices", "Taller1\Taller2_Matrices.csproj", "{CC0D7860-0172-44AF-AC30-E6606F1F9804}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taller1_Matrices", "Taller1\Taller1_Matrices.csproj", "{CC0D7860-0172-44AF-AC30-E6606F1F9804}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taller1Tests", "Taller1Tests\Taller1Tests.csproj", "{E81F296C-476F-4A35-BA70-1E8AD6D98DEE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taller1_Tests", "Taller1Tests\Taller1_Tests.csproj", "{E81F296C-476F-4A35-BA70-1E8AD6D98DEE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
