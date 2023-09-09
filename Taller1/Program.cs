@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Taller1_Matrices;
 
 namespace Taller1_Matrices
@@ -35,7 +36,6 @@ namespace Taller1_Matrices
             Matriz sumado = matrixA.Sumar(matrixB);
             Matriz multiplicado = matrixA.Multiplicar(matrixB);
             Matriz potenciado = matrixA.Potencia(6);
-            
 
             if (matrixC.equals(sumado))
             {
@@ -64,6 +64,70 @@ namespace Taller1_Matrices
                 Console.WriteLine("La potenciacion no es igual a la matriz E.");
             }
             Console.WriteLine("------------------------------------------------------------");
+
+            //--------------------->Prueba #1
+
+            // Arrange
+            Matriz matriz = new Matriz(2, 2);
+            matriz.GetMatrix()[0, 0] = 2;
+            matriz.GetMatrix()[0, 1] = 2;
+            matriz.GetMatrix()[1, 0] = 2;
+            matriz.GetMatrix()[1, 1] = 2;
+
+            // Act
+            Matriz resultado = matriz.Potencia(3);
+
+            // Assert
+            Assert.AreEqual(32, resultado.GetMatrix()[0, 0]);
+            Assert.AreEqual(32, resultado.GetMatrix()[0, 1]);
+            Assert.AreEqual(32, resultado.GetMatrix()[1, 0]);
+            Assert.AreEqual(32, resultado.GetMatrix()[1, 1]);
+
+            //--------------------->prueba#2
+
+            // Arrange
+            Matriz matriz2 = new Matriz(2, 2);
+            matriz2.GetMatrix()[0, 0] = 1;
+            matriz2.GetMatrix()[0, 1] = 2;
+            matriz2.GetMatrix()[1, 0] = 3;
+            matriz2.GetMatrix()[1, 1] = 4;
+
+            // Act
+            Matriz resultado2 = matriz2.Potencia(5);
+
+            // Assert
+            Assert.AreEqual(1069, resultado2.GetMatrix()[0, 0]);
+            Assert.AreEqual(1558, resultado2.GetMatrix()[0, 1]);
+            Assert.AreEqual(2337, resultado2.GetMatrix()[1, 0]);
+            Assert.AreEqual(3406, resultado2.GetMatrix()[1, 1]);
+
+            //---------------------->prueba #3
+
+            // Arrange
+            Matriz matriz3 = new Matriz(3, 3);
+            matriz3.GetMatrix()[0, 0] = 1;
+            matriz3.GetMatrix()[0, 1] = 2;
+            matriz3.GetMatrix()[0, 2] = 3;
+            matriz3.GetMatrix()[1, 0] = 4;
+            matriz3.GetMatrix()[1, 1] = 5;
+            matriz3.GetMatrix()[1, 2] = 6;
+            matriz3.GetMatrix()[2, 0] = 7;
+            matriz3.GetMatrix()[2, 1] = 8;
+            matriz3.GetMatrix()[2, 2] = 9;
+
+            // Act
+            Matriz resultado3 = matriz3.Potencia(3);
+
+            // Assert
+            Assert.AreEqual(468, resultado3.GetMatrix()[0, 0]);
+            Assert.AreEqual(576, resultado3.GetMatrix()[0, 1]);
+            Assert.AreEqual(684, resultado3.GetMatrix()[0, 2]);
+            Assert.AreEqual(1062, resultado3.GetMatrix()[1, 0]);
+            Assert.AreEqual(1305, resultado3.GetMatrix()[1, 1]);
+            Assert.AreEqual(1548, resultado3.GetMatrix()[1, 2]);
+            Assert.AreEqual(1656, resultado3.GetMatrix()[2, 0]);
+            Assert.AreEqual(2034, resultado3.GetMatrix()[2, 1]);
+            Assert.AreEqual(2412, resultado3.GetMatrix()[2, 2]);
 
             //----------------------------------------------------------------------------------
 
@@ -96,7 +160,7 @@ namespace Taller1_Matrices
                 Console.WriteLine("-----------------------------------------\n");
 
                 Console.WriteLine("\nCalcular potencias de una matriz cuadrada\n");
-                int potencia = 2; // Potencia 
+                int potencia = 5; // Potencia 
                 Matriz matrizOriginal = matrix1.Potencia(potencia);
 
                 // Imprime la matriz resultado 

@@ -8,23 +8,23 @@ namespace Taller1_Matrices
     public class PruebasAssertTests
     {
         [TestMethod]
-        public void Potencia_Matriz_2x2_Potencia3()
+        public void Potencia_Matriz2X2_Potencia3()
         {
-            //Arrange
-            Matriz matrizA = new Matriz();
-            int[,] matrizAArray = { { 2, 2,}, { 2, 2}};
-            matrizA.SetMatrix(matrizAArray);
-
-            Matriz esperado = new Matriz();
-            int[,] matrizBArray = { { 32, 32}, { 32, 32} };
-            esperado.SetMatrix(matrizBArray);
+            // Arrange
+            Matriz matriz = new Matriz(2, 2);
+            matriz.GetMatrix()[0, 0] = 2;
+            matriz.GetMatrix()[0, 1] = 2;
+            matriz.GetMatrix()[1, 0] = 2;
+            matriz.GetMatrix()[1, 1] = 2;
 
             // Act
-            Matriz resultado = matrizA.Potencia(3);
+            Matriz resultado = matriz.Potencia(3);
 
             // Assert
-            Assert.AreEqual(esperado,esperado);
-            
+            Assert.AreEqual(32, resultado.GetMatrix()[0, 0]);
+            Assert.AreEqual(32, resultado.GetMatrix()[0, 1]);
+            Assert.AreEqual(32, resultado.GetMatrix()[1, 0]);
+            Assert.AreEqual(32, resultado.GetMatrix()[1, 1]);
         }
 
         [TestMethod]

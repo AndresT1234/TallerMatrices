@@ -158,14 +158,10 @@ namespace Taller1_Matrices
                 resultado.matrix[i, i] = 1;
             }
 
-            while (potencia > 0)
-            {
-                if (potencia % 2 == 1)
-                {
-                    resultado = resultado.Multiplicar(baseMatriz);
-                }
-                baseMatriz = baseMatriz.Multiplicar(baseMatriz);
-                potencia /= 2;
+            for (; potencia > 0; potencia /= 2, baseMatriz = baseMatriz.Multiplicar(baseMatriz)) { 
+                if (potencia % 2 == 1) { 
+                    resultado = resultado.Multiplicar(baseMatriz); 
+                } 
             }
 
             return resultado;
