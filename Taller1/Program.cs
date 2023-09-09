@@ -7,22 +7,37 @@ namespace Taller1_Matrices
     {
         public static void Main(string[] args)
         {
+            //---------------------------------------------------------------------------------
 
             Matriz matrixA = new Matriz();
-            int[,] matrizAArray = { { 2, 2, 2 }, { 2, 2, 2 }, { 2, 2, 2 }, { 2, 2, 2 } };
+            int[,] matrizAArray = { { 2, 2, 2 }, { 2, 2, 2 }, { 2, 2, 2 }};
             matrixA.SetMatrix(matrizAArray);
 
             Matriz matrixB = new Matriz();
-            int[,] matrizBArray = { { 2, 2, 2 }, { 2, 2, 2 }, { 2, 2, 2 }, { 2, 2, 2 } };
+            int[,] matrizBArray = { { 2, 2, 2 }, { 2, 2, 2 }, { 2, 2, 2 }};
             matrixB.SetMatrix(matrizBArray);
 
             Matriz matrixC = new Matriz();
-            int[,] matrizCArray = { { 4, 4, 4 }, { 4, 4, 4 }, { 4, 4, 4 }, { 4, 4, 4 } };
-            matrixC.SetMatrix(matrizCArray); 
+            int[,] matrizCArray = { { 4, 4, 4 }, { 4, 4, 4 }, { 4, 4, 4 } };
+            matrixC.SetMatrix(matrizCArray);
+
+            Matriz matrixD = new Matriz();
+            int[,] matrizDArray = { { 72, 72, 72 }, { 72, 72, 72 }, { 72, 72, 72 }};
+            matrixD.SetMatrix(matrizDArray);
+
+            Matriz matrixE = new Matriz();
+            int[,] matrizEArray = { { 15552, 15552, 15552 }, { 15552, 15552, 15552 }, { 15552, 15552, 15552 } };
+            matrixE.SetMatrix(matrizEArray);
+
+            Console.WriteLine("\nPruebas De Metodos implementados usando el Metodo equals");
+            Console.WriteLine("------------------------------------------------------------");
 
             Matriz sumado = matrixA.Sumar(matrixB);
+            Matriz multiplicado = matrixA.Multiplicar(matrixB);
+            Matriz potenciado = matrixA.Potencia(6);
+            
 
-            if (matrixC.Equals(sumado))
+            if (matrixC.equals(sumado))
             {
                 Console.WriteLine("La suma es igual a la matriz C.\n");
             }
@@ -30,6 +45,27 @@ namespace Taller1_Matrices
             {
                 Console.WriteLine("La suma no es igual a la matriz C.\n");
             }
+
+            if (matrixD.equals(multiplicado))
+            {
+                Console.WriteLine("La multiplicacion es igual a la matriz D.\n");
+            }
+            else
+            {
+                Console.WriteLine("La multiplicacion no es igual a la matriz D.\n");
+            }
+
+            if (matrixE.equals(potenciado))
+            {
+                Console.WriteLine("La potenciacion es igual a la matriz E.");
+            }
+            else
+            {
+                Console.WriteLine("La potenciacion no es igual a la matriz E.");
+            }
+            Console.WriteLine("------------------------------------------------------------");
+
+            //----------------------------------------------------------------------------------
 
             Matriz matrix1 = new Matriz(3, 3);
             Matriz matrix2 = new Matriz(3, 3);
