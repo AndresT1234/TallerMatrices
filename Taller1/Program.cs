@@ -18,7 +18,7 @@ namespace Taller2_Metrices
 
             Matriz matrixC = new Matriz();
             int[,] matrizCArray = { { 4, 4, 4 }, { 4, 4, 4 }, { 4, 4, 4 }, { 4, 4, 4 } };
-            matrixC.SetMatrix(matrizCArray);
+            matrixC.SetMatrix(matrizCArray); //hola
 
             Matriz sumado = matrixA.Sumar(matrixB);
 
