@@ -92,7 +92,7 @@ namespace Taller1_Matrices
             {
                 valor = amiguitos.GetHashCode();
                 resultado += valor;
-                // Console.WriteLine($"Para {amiguitos} el valor es {valor} y el resultado va en ... {resultado}"); prueba
+                
             }
             return Math.Abs(resultado % 5); //como da -4, se saca el valor absoluta ya que el hascode me da un valor con signo
         }
@@ -118,19 +118,19 @@ namespace Taller1_Matrices
 
         public Matriz Multiplicar(Matriz nuevamatriz)
         {
-            if (GetColumnas() != nuevamatriz.filas)
+            if (this.columnas != nuevamatriz.filas)
             {
-                throw new Exception("La matriz no es cuadrada, no se pueden calcular potencias.");
+                throw new Exception("Las columnas de la matriz A no son iguales a las filas de la matriz B.");
             }
 
-            Matriz resultado = new Matriz(GetFilas(), nuevamatriz.columnas);
+            Matriz resultado = new Matriz(this.filas, nuevamatriz.columnas);
 
-            for (int i = 0; i < GetFilas(); i++)
+            for (int i = 0; i < this.filas; i++)
             {
                 for (int j = 0; j < nuevamatriz.columnas; j++)
                 {
                     int suma = 0;
-                    for (int k = 0; k < GetColumnas(); k++)
+                    for (int k = 0; k < this.columnas; k++)
                     {
                         suma += this.matrix[i, k] * nuevamatriz.matrix[k, j];
                     }
@@ -142,19 +142,19 @@ namespace Taller1_Matrices
 
         public Matriz Potencia(int potencia)
         {
-            if (GetFilas() != GetColumnas())
+            if (this.filas != this.columnas)
             {
                 throw new Exception("La matriz no es cuadrada, no se pueden calcular potencias.");
             }
 
-            Matriz resultado = new Matriz(GetFilas(), GetColumnas());
+            Matriz resultado = new Matriz(this.filas, this.columnas);
 
             // Copiar la matriz original en baseMatriz
-            Matriz baseMatriz = new Matriz(GetFilas(), GetColumnas());
+            Matriz baseMatriz = new Matriz(this.filas, this.columnas);
 
-            for (int i = 0; i < GetFilas(); i++)
+            for (int i = 0; i < this.filas; i++)
             {
-                for (int j = 0; j < GetColumnas(); j++)
+                for (int j = 0; j < this.columnas; j++)
                 {
                     baseMatriz.matrix[i, j] = this.matrix[i, j];
                 }
@@ -212,7 +212,6 @@ namespace Taller1_Matrices
             }
             return matriz;
         }
-
 
 
         public static void Main(string[] args)
