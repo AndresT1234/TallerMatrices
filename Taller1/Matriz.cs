@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Diagnostics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Taller1_Matrices
 {
+
     public class Matriz
     {
         private int filas;
@@ -34,6 +36,11 @@ namespace Taller1_Matrices
         {
             matrix = x;
         }
+        public void SetMatrix(int i, int j, int valor)
+        {
+            matrix[i, j] = valor;
+        }
+
 
         public int[,] GetMatrix()
         {
@@ -180,6 +187,30 @@ namespace Taller1_Matrices
                     this.matrix[i, j] = random.Next(6);
                 }
             }
+        }
+
+        public void InicializarMatrices()
+        {
+            Random random = new Random(DateTime.Now.Millisecond);//un milisegundo del tiempo actual, una semilla al metodo
+            for (int i = 0; i < filas; i++)
+            {
+                for (int j = 0; j < columnas; j++)
+                {
+                    this.matrix[i, j] = random.Next(6);
+                }
+            }
+        }
+
+        public static Matriz generarMatrizAleatoria(int m, int n)
+        {
+            Random random = new Random(DateTime.Now.Millisecond);
+            Matriz matriz = new Matriz(m, n);
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < n; j++) matriz.SetMatrix(i, j, random.Next(6));
+
+            }
+            return matriz;
         }
 
 
@@ -344,10 +375,36 @@ namespace Taller1_Matrices
                 // Imprime la matriz resultado 
                 Console.WriteLine("matriz1^" + potencia + ":\n");
                 Console.WriteLine(matrizOriginal.ToString());
+
             }
             catch (Exception upss)
             {
                 Console.WriteLine("Tuvimos un error :( --> " + upss.Message);
+            }
+
+            // -------------------> pruebas tiempo
+            Console.WriteLine("\nImprimir Tiempos\n");
+
+            int[] longitudes = { 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1500 };
+            int contar = 1;
+            foreach (int tamano in longitudes)
+            {
+                Matriz matrizNueva = generarMatrizAleatoria(tamano, tamano);
+                Stopwatch stopwatch = new Stopwatch();
+
+                stopwatch.Start();
+                Matriz resultadoNueva = matrizNueva.Potencia(2);
+                stopwatch.Stop();
+
+                TimeSpan tiempoTranscurrido = stopwatch.Elapsed;
+
+                double milisegundos = tiempoTranscurrido.TotalMilliseconds;
+                double segundos = tiempoTranscurrido.TotalSeconds;
+
+                Console.WriteLine($"Matriz #{contar} es: {tamano}x{tamano}");
+                Console.WriteLine($"Tiempo Trascurrido en milisegundos: {milisegundos} ms");
+                Console.WriteLine($"Tiempo Transcurrido en segundos: {segundos} s\n");
+                contar++;
             }
         }
 
